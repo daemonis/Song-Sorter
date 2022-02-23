@@ -12,17 +12,19 @@
             int numberOfArtists = artists.Length;
             int numberOfRatings = ratings.Length;
 
-            Console.WriteLine($"Please enter {numberOfSongs} of your favorite songs: ");
+            Console.WriteLine($"Please enter {numberOfSongs} of your favorite songs.");
 
             int i = 0;
 
             do
             {
+                Console.Write($"{i + 1}) ");
+
                 songs[i] = Console.ReadLine();
 
                 if (String.IsNullOrEmpty(songs[i]))
                 {
-                    Console.WriteLine("Please enter a song name: ");
+                    Console.WriteLine("Please enter a song name.");
                     continue;
                 }
                 else
@@ -75,7 +77,7 @@
 
             for (i = 0; i < numberOfSongs; i++)
             {
-                Console.WriteLine($"{songs[i]} by {artists[i]}. From 1-5, you gave this song a rating of {ratings[i]}.");
+                Console.WriteLine($"{i + 1}) {songs[i]} by {artists[i]}. From 1-5, you gave this song a rating of {ratings[i]}.");
             }
         }
     }
