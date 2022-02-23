@@ -4,19 +4,23 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please enter 5 of your favorite songs: ");
-
-            string[] favoriteSongs = new string[5];
+            string[] songs = new string[5];
             string[] artists = new string[5];
             string[] ratings = new string[5];
+
+            int numberOfSongs = songs.Length;
+            int numberOfArtists = artists.Length;
+            int numberOfRatings = ratings.Length;
+
+            Console.WriteLine($"Please enter {numberOfSongs} of your favorite songs: ");
 
             int i = 0;
 
             do
             {
-                favoriteSongs[i] = Console.ReadLine();
+                songs[i] = Console.ReadLine();
 
-                if (String.IsNullOrEmpty(favoriteSongs[i]))
+                if (String.IsNullOrEmpty(songs[i]))
                 {
                     Console.WriteLine("Please enter a song name: ");
                     continue;
@@ -26,15 +30,15 @@
                     i++;
                 }
             }
-            while (i < favoriteSongs.Length);
+            while (i < numberOfSongs);
 
-            Array.Sort(favoriteSongs);
+            Array.Sort(songs);
 
             i = 0;
 
             do
             {
-                Console.Write($"Who is the artist of {favoriteSongs[i]}: ");
+                Console.Write($"Who is the artist of {songs[i]}: ");
                 artists[i] = Console.ReadLine();
 
                 if (String.IsNullOrEmpty(artists[i]))
@@ -47,13 +51,13 @@
                     i++;
                 }
             }
-            while (i < artists.Length);
+            while (i < numberOfArtists);
 
             i = 0;
 
             do
             {
-                Console.Write($"What would you rate the song {favoriteSongs[i]} from 1 to 5: ");
+                Console.Write($"What would you rate the song {songs[i]} from 1 to 5: ");
                 ratings[i] = Console.ReadLine();
 
                 if (Double.TryParse(ratings[i], out double num) && num <= 5 && num >= 0)
@@ -65,13 +69,13 @@
                     Console.Write("That is not a number between 1-10.\n");
                 }
             }
-            while (i < ratings.Length);
+            while (i < numberOfRatings);
 
-            Console.WriteLine("Your top ten songs are: ");
+            Console.WriteLine($"Your top {numberOfSongs} songs are: ");
 
-            for (i = 0; i < favoriteSongs.Length; i++)
+            for (i = 0; i < numberOfSongs; i++)
             {
-                Console.WriteLine($"{favoriteSongs[i]} by {artists[i]}. You gave this song a rating of {ratings[i]}.");
+                Console.WriteLine($"{songs[i]} by {artists[i]}. From 1-5, you gave this song a rating of {ratings[i]}.");
             }
         }
     }
