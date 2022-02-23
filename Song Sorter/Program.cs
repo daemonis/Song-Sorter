@@ -69,6 +69,7 @@
                 else
                 {
                     Console.Write("That is not a number between 1-10.\n");
+                    continue;
                 }
             }
             while (i < numberOfRatings);
